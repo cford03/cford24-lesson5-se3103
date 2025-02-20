@@ -1,6 +1,6 @@
 package model;
 
-public class MyShape {
+public abstract class MyShape extends Object{
 
     public double x;
     public double y;
@@ -16,8 +16,11 @@ public class MyShape {
     }
 
 
-    public double getArea(){
-        return -1;
+    public abstract double getArea();
+
+    @Override
+    public String toString(){
+        return String.format("MyShape@[%.1f, %.1f]",x,y);
     }
 
 }

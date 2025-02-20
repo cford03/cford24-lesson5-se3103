@@ -16,4 +16,8 @@ public class Circle extends MyShape {
     public double getArea(){
         return Math.PI * radius * radius;
     }
+    @Override
+    public String toString(){
+        return String.format("Circle@[%.1f,%.1f] r=%.1f",x,y,radius);
+    }
 }

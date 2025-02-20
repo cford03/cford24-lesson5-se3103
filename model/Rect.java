@@ -18,4 +18,8 @@ public class Rect extends MyShape {
     public double getArea(){
         return width * height;
     }
+
+    public String toString(){
+        return String.format("Rect@[%.1f, %.1f] w=%.1f h%.1f", x, y, width, height);
+    }
 }
