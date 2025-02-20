@@ -14,6 +14,7 @@ import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 
 import controller.AddButtonListener;
+import controller.App;
 import controller.ClearButtonListener;
 import controller.QtyItemListener;
 import controller.RemoveButtonListener;
@@ -44,9 +45,10 @@ public class AppWindow extends JFrame {
         shapePanel.setBorder(new TitledBorder("Select Shape"));
         ButtonGroup shapeGroup = new ButtonGroup();
         JRadioButton[] shapeButtons = new JRadioButton[]{
-            new JRadioButton(shapeActionCommand[0],true), //default
-            new JRadioButton(shapeActionCommand[1]), 
-            new JRadioButton(shapeActionCommand[2]), 
+            new JRadioButton(shapeActionCommand[0],App.model.shapeType == shapeActionCommand[0]), 
+            new JRadioButton(shapeActionCommand[1],App.model.shapeType == shapeActionCommand[1]), 
+            new JRadioButton(shapeActionCommand[2],App.model.shapeType == shapeActionCommand[2]), 
+            
         };
         ShapeButtonListener shapeButtonListener = new ShapeButtonListener();
         for(var b: shapeButtons){
