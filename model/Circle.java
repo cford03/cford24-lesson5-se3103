@@ -20,4 +20,12 @@ public class Circle extends MyShape {
     public String toString(){
         return String.format("Circle@[%.1f,%.1f] r=%.1f",x,y,radius);
     }
+
+    @Override
+    public boolean contains(double px, double py) {
+        double distance = Math.sqrt(
+            (x - px) * (x - px) + (y - py) * (y-py)
+        );
+        return distance <= this.radius;
+    }
 }

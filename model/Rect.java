@@ -22,4 +22,11 @@ public class Rect extends MyShape {
     public String toString(){
         return String.format("Rect@[%.1f, %.1f] w=%.1f h%.1f", x, y, width, height);
     }
+
+    @Override
+    public boolean contains(double px, double py) {
+        boolean isXinside =x-width/2 <= px && px <= x+width/2;
+        boolean isYInside = y-height/2 <= py && py <= y+height/2;
+        return isXinside && isYInside;
+    }
 }

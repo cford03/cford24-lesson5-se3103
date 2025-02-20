@@ -1,6 +1,6 @@
 package model;
 
-public abstract class MyShape extends Object{
+public abstract class MyShape extends Object implements Containable{
 
     public double x;
     public double y;
