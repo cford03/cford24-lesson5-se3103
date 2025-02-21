@@ -39,11 +39,11 @@ public class AppCanvas extends JPanel {
             for(int i = 0; i < App.model.shapes.size();i++){
                 Object shape = App.model.shapes.get(i);
                 if(shape instanceof Circle)
-                    drawCircle(g2, (Circle) shape , false);
+                    drawCircle(g2, (Circle) shape , i == App.model.selectedIndex);
                 else if(shape instanceof Rect)
-                    drawRect(g2, (Rect) shape, false);
+                    drawRect(g2, (Rect) shape, i == App.model.selectedIndex);
                 else if( shape instanceof StadiumShape)
-                    drawStadiumShape(g2, (StadiumShape) shape , false);
+                    drawStadiumShape(g2, (StadiumShape) shape , i == App.model.selectedIndex);
         }
 
     }
