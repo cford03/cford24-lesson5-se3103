@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -33,6 +34,8 @@ public class AppCanvas extends JPanel {
         public void paintComponent(Graphics g){
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
+            BasicStroke stroke = new BasicStroke(2);
+            g2.setStroke(stroke);
             for(int i = 0; i < App.model.shapes.size();i++){
                 Object shape = App.model.shapes.get(i);
                 if(shape instanceof Circle)
@@ -40,7 +43,7 @@ public class AppCanvas extends JPanel {
                 else if(shape instanceof Rect)
                     drawRect(g2, (Rect) shape, false);
                 else if( shape instanceof StadiumShape)
-                    drawStadiumShape(g2, (StadiumShape), false);
+                    drawStadiumShape(g2, (StadiumShape) shape , false);
         }
 
     }
@@ -66,6 +69,6 @@ public class AppCanvas extends JPanel {
         BufferedImage image;
         if (isFill) image = ImageStore.stadiumImageSelected;
         else image = ImageStore.stadiumImage;
-        g2.drawImage(image, null, x, y );
+        g2.drawImage(image, null, x, y);
     }
 }
