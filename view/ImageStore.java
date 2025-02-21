@@ -11,6 +11,18 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 public class ImageStore {
+
+    public static final BufferedImage stadiumImage;
+    public static final BufferedImage stadiumImageSelected;
+
+    static{
+        int size = AppWindow.SIZE;
+        stadiumImage = readImage(
+            "view/images/stadium_image_file.png",size*3, size, 0.4f);
+        stadiumImageSelected = readImage(
+            "view/images/stadium_image_file.png",size*3, size, 1.0f);
+
+    }
     
     public static BufferedImage readImage(String path, int width, int height, float alpha){
         try{

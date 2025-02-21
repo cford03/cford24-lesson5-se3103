@@ -7,27 +7,41 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import controller.App;
 import model.Circle;
 import model.Rect;
+import model.StadiumShape;
 
 public class AppCanvas extends JPanel {
 
     
-    public static int WIDTH = 500;
-    public static int HEIGHT = 500;
-
-    Color circleColor = Color.red;
-    Color rectColor = Color.blue;
-    public AppCanvas(){
-        setPreferredSize(new Dimension(WIDTH,HEIGHT));
-    }
+    private static final StadiumShape StadiumShape = null;
+        public static int WIDTH = 500;
+        public static int HEIGHT = 500;
     
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
+        Color circleColor = Color.red;
+        Color rectColor = Color.blue;
+        public AppCanvas(){
+            setPreferredSize(new Dimension(WIDTH,HEIGHT));
+        }
+        
+        @Override
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            Graphics2D g2 = (Graphics2D) g;
+            for(int i = 0; i < App.model.shapes.size();i++){
+                Object shape = App.model.shapes.get(i);
+                if(shape instanceof Circle)
+                    drawCircle(g2, (Circle) shape , false);
+                else if(shape instanceof Rect)
+                    drawRect(g2, (Rect) shape, false);
+                else if( shape instanceof StadiumShape)
+                    drawStadiumShape(g2, (StadiumShape), false);
+        }
 
     }
 
@@ -46,4 +60,12 @@ public class AppCanvas extends JPanel {
         else g2.draw(s);
     }
 
+    private void drawStadiumShape(Graphics2D g2, StadiumShape s, boolean isFill){
+        int x = (int) s.x;
+        int y = (int) s.y;
+        BufferedImage image;
+        if (isFill) image = ImageStore.stadiumImageSelected;
+        else image = ImageStore.stadiumImage;
+        g2.drawImage(image, null, x, y );
+    }
 }
