@@ -18,9 +18,9 @@ public class ImageStore {
     static{
         int size = AppWindow.SIZE;
         stadiumImage = readImage(
-            "view/images/stadium_image_file.png",size*3, size, 0.4f);
+            "cford24-lesson5-se3103-main/view/images/stadium_image_file.png",size*3, size, 0.4f);
         stadiumImageSelected = readImage(
-            "view/images/stadium_image_file.png",size*3, size, 1.0f);
+            "cford24-lesson5-se3103-main/view/images/stadium_image_file.png",size*3, size, 1.0f);
 
     }
     
